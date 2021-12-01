@@ -6,6 +6,7 @@ export interface ToolbarModel {
 
 export interface ToolbarWidget {
   buttonName: string
+  buttonClassOverride?: string
   buttonClick?: any
   buttonIcon?: any
   buttonText?: any
@@ -27,6 +28,7 @@ export interface CustomButtonInput {
   icon?: string
   themeIcon?: string
   bootstrapFontAwesome?: string
+  buttonClassOverride?: string
   click?(ev: MouseEvent, element: HTMLElement): void
 }
 

@@ -30,7 +30,7 @@ export class ToolbarSection extends BaseComponent<ToolbarSectionProps> {
     let isOnlyButtons = true
 
     for (let widget of widgetGroup) {
-      let { buttonName, buttonClick, buttonText, buttonIcon, buttonHint } = widget
+      let { buttonName, buttonClick, buttonText, buttonIcon, buttonHint, buttonClassOverride } = widget
 
       if (buttonName === 'title') {
         isOnlyButtons = false
@@ -44,7 +44,7 @@ export class ToolbarSection extends BaseComponent<ToolbarSectionProps> {
           (!props.isPrevEnabled && buttonName === 'prev') ||
           (!props.isNextEnabled && buttonName === 'next')
 
-        let buttonClasses = [`fc-${buttonName}-button`, theme.getClass('button')]
+        let buttonClasses = [`fc-${buttonName}-button`, buttonClassOverride || theme.getClass('button')]
         if (isPressed) {
           buttonClasses.push(theme.getClass('buttonActive'))
         }

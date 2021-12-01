@@ -86,6 +86,7 @@ function parseSection(
 
         let customButtonProps: CustomButtonInput
         let viewSpec: ViewSpec
+        let buttonClassOverride
         let buttonClick
         let buttonIcon // only one of these will be set
         let buttonText // "
@@ -103,6 +104,7 @@ function parseSection(
             (buttonIcon = theme.getIconClass(buttonName, isRtl)) ||
             (buttonText = customButtonProps.text)
 
+          buttonClassOverride = customButtonProps.buttonClassOverride || '';
           buttonHint = customButtonProps.hint || customButtonProps.text
         } else if ((viewSpec = viewSpecs[buttonName])) {
           viewsWithButtons.push(buttonName)
@@ -159,7 +161,7 @@ function parseSection(
           }
         }
 
-        return { buttonName, buttonClick, buttonIcon, buttonText, buttonHint }
+        return { buttonName, buttonClick, buttonIcon, buttonText, buttonHint, buttonClassOverride }
       })
     ),
   )
